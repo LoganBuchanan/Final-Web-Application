@@ -1,0 +1,26 @@
+/* Introduction Section Styling */
+.intro-content {
+    display: flex; /* Create a flex container for image and first paragraph */
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Add space between the image and text */
+    margin-top: 20px; /* Add space above the content */
+}
+
+.intro-image {
+    width: 275px; /* Set the width of the image */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.intro-content p {
+    flex: 1; /* Allow the text to occupy the remaining space */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Second paragraph below the image */
+.below-image {
+    margin-top: 20px; /* Add space above the second paragraph */
+    line-height: 1.6; /* Improve readability */
+}
+

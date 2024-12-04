@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials - Buchanan Building Consortium</title>
+  <!-- Link to Shared Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Custom Styles for Testimonials -->
+  <link rel="stylesheet" href="css/testimonials.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-title">What Our Clients Say</div>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="reviews.html" class="nav-link active">Testimonials</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Display Existing Testimonials -->
+    <section class="testimonials-section">
+      <h2>Customer Testimonials</h2>
+      <div class="testimonial">
+        <p class="quote">"Buchanan Building Consortium made our dream home a reality. Their attention to detail and professionalism were outstanding."</p>
+        <p class="client">- Sarah and John D.</p>
+      </div>
+      <div class="testimonial">
+        <p class="quote">"From start to finish, the team was incredible. They stayed on budget and completed our renovation ahead of schedule."</p>
+        <p class="client">- Emily T., Homeowner</p>
+      </div>
+    </section>
+
+    <!-- Submit Your Testimonial -->
+    <section class="submit-testimonial-section">
+        <h2>Submit Your Testimonial</h2>
+        <form id="testimonial-form">
+          <label for="name">Your Name:</label><br />
+          <input type="text" id="name" name="name" placeholder="Enter your name" required><br /><br />
+        
+          <label for="email">Your Email:</label><br />
+          <input type="email" id="email" name="email" placeholder="Enter your email" required><br /><br />
+        
+          <label for="testimonial">Your Testimonial:</label><br />
+          <textarea id="testimonial" name="testimonial" rows="4" placeholder="Write your testimonial here..." required></textarea><br /><br />
+        
+          <!-- Submit Button -->
+          <button type="submit" id="submit-button" disabled style="display: none;">Submit</button>
+    </form>
+    <p id="form-response" style="display: none; font-weight: bold;"></p>
+      
+      </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Buchanan Building Consortium. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/submitTestimonial.js" defer></script>
+</body>
+</html>

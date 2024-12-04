@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Services</title>
+    <!-- Link to Shared Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Link to Services-Specific Styles -->
+    <link rel="stylesheet" href="css/services.css" />
+    <!-- Fancybox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.17/dist/fancybox/fancybox.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-title">My Services</div>
+      <nav class="navbar">
+        <ul class="navbar-nav">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link active">Services/Gallery</a></li>
+          <li><a href="reviews.html" class="nav-link">Testimonials</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="search-section">
+        <h2>Search Our Services</h2>
+        <div>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search for services..." 
+            aria-label="Search for services">
+          <ul id="search-results"></ul>
+        </div>
+      </section>
+
+    <!-- Main Content -->
+    <main>
+        <h2 class="text-center">Our Services Gallery</h2>
+      
+        <!-- Service Section 1 -->
+        <section id="service1" class="service-section">
+          <div class="description">
+            <p>
+              Group 1: Discover the beauty and functionality of our first service. 
+              We focus on delivering high-quality and stunning visuals.
+            </p>
+          </div>
+          <div class="images">
+            <a
+              data-fancybox="group1"
+              data-src="images/Canceled.png"
+              data-caption="Canceled Image"
+            >
+              <img src="images/Canceled.png" alt="Canceled" />
+            </a>
+            <a
+              data-fancybox="group1"
+              data-src="images/Dune_Sandworm-e1711766590955-1200x799.png"
+              data-caption="Dune Sandworm"
+            >
+              <img
+                src="images/Dune_Sandworm-e1711766590955-1200x799.png"
+                alt="Dune Sandworm"
+              />
+            </a>
+          </div>
+        </section>
+      
+        <!-- Service Section 2 -->
+        <section id="service2" class="service-section">
+          <div class="description">
+            <p>
+              Group 2: Explore unique and innovative solutions. This group showcases creative projects and inspirational visuals.
+            </p>
+          </div>
+          <div class="images">
+            <a
+              data-fancybox="group2"
+              data-src="images/Email_Meme.png"
+              data-caption="Email Meme"
+            >
+              <img src="images/Email_Meme.png" alt="Email Meme" />
+            </a>
+            <a
+              data-fancybox="group2"
+              data-src="images/galaxy.jpg"
+              data-caption="Galaxy"
+            >
+              <img src="images/galaxy.jpg" alt="Galaxy" />
+            </a>
+          </div>
+        </section>
+      
+        <!-- Service Section 3 -->
+        <section id="service3" class="service-section">
+          <div class="description">
+            <p>
+              Did I mention we do Wall to Stone Fireplace Conversion? Here is an example of one we've done!
+            </p>
+          </div>
+          <div class="images">
+            <a
+              data-fancybox="group3"
+              data-src="images/ScreenShot-2022-1-15_0-19-38.png"
+              data-caption="Screenshot Example"
+            >
+              <img
+                src="images/ScreenShot-2022-1-15_0-19-38.png"
+                alt="Screenshot Example"
+              />
+            </a>
+            <a
+              data-fancybox="group3"
+              data-src="images/Canceled.png"
+              data-caption="Canceled Image Repeated"
+            >
+              <img src="images/Canceled.png" alt="Canceled Repeated" />
+            </a>
+          </div>
+        </section>
+      </main>
+      
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Buchanan Building Consortium. All rights reserved.</p>
+    </footer>
+
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.17/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      // Fancybox Initialization
+      Fancybox.bind('[data-fancybox]', {
+        Slideshow: {
+          progressParentEl: (slideshow) => {
+            return slideshow.instance.container;
+          },
+        },
+      });
+    </script>
+    <script src="js/search.js"></script>
+  </body>
+</html>

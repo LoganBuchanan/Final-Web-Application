@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/contact.css"> <!-- Contact-specific styles -->
+
+  <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">Reach Me!</div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="services.html" class="nav-link">Services/Gallery</a></li>
+            <li><a href="reviews.html" class="nav-link">Testimonials</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+
+  <main>
+    <h2>Make an Appointment</h2>
+    <form id="contact-form">
+      <label for="datepicker">Choose a Date:</label>
+      <input type="text" id="datepicker" name="appointment-date" placeholder="Select a date">
+      
+      <!-- User's Name -->
+      <div id="name-box">
+        <label for="user-name">Your Name:</label>
+        <input type="text" id="user-name" name="user-name" placeholder="Enter your name">
+      </div>
+
+      <!-- Reason for Contact -->
+      <div id="reason-box">
+        <label for="reason">Reason for Contact:</label>
+        <textarea id="reason" name="reason" rows="4" placeholder="Enter your reason for contacting us..."></textarea>
+      </div>
+      
+
+      <!-- Contact Information -->
+      <div id="contact-box">
+        <label for="contact-info">Your Contact Information:</label>
+        <input type="text" id="contact-info" name="contact-info" placeholder="Enter your email or phone #">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submit-button" disabled style="display: none;">Submit</button>
+    </form>
+    <p id="form-response" style="display: none; font-weight: bold;"></p>
+  </main>
+
+  <footer>
+    <p>&copy; This is the homepage for my project. All rights reserved.</p>
+  </footer>
+
+  <!-- jQuery and jQuery UI Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+  <!-- EmailJS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="js/contact.js"></script>
+</body>
+</html>

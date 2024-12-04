@@ -1,0 +1,131 @@
+/* General Styles for the Form */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+form label {
+    font-weight: bold;
+    display: block; /* Each label starts on a new line */
+    margin-bottom: 5px; /* Space below the label */
+}
+
+/* Input Fields */
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #28a745; /* Green border on focus */
+    box-shadow: 0 0 5px #28a745;
+    outline: none; /* Remove default outline */
+}
+
+/* Datepicker Input Field */
+#datepicker {
+    background-color: #fff; /* Ensure it has a white background */
+}
+
+/* jQuery UI Datepicker Styles */
+.ui-datepicker {
+    z-index: 1000; /* Ensure it appears above other elements */
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.ui-datepicker-header {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px 4px 0 0;
+}
+
+.ui-datepicker td a {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+}
+
+.ui-datepicker td a:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.ui-datepicker .ui-datepicker-current-day a {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+/* Reason for Contact Box */
+#reason-box textarea {
+    resize: none; /* Prevent resizing of the text area */
+    height: 100px; /* Set a consistent height */
+}
+
+/* Submit Button */
+#submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #28a745; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: not-allowed; /* Default state is disabled */
+    opacity: 0.6;
+    display: none; /* Hidden by default */
+}
+
+#submit-button:enabled {
+    cursor: pointer; /* Enable pointer when active */
+    opacity: 1;
+}
+
+#submit-button:hover:enabled {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Form Response Message */
+#form-response {
+    margin-top: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    display: none; /* Hidden by default */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    form label,
+    form input,
+    form textarea,
+    #submit-button {
+        font-size: 1em;
+    }
+}
