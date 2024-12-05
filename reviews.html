@@ -7,7 +7,7 @@
   <!-- Link to Shared Styles -->
   <link rel="stylesheet" href="css/styles.css">
   <!-- Custom Styles for Testimonials -->
-  <link rel="stylesheet" href="css/testimonials.css">
+  <link rel="stylesheet" href="css/reviews.css">
 </head>
 <body>
   <!-- Header -->
@@ -40,31 +40,36 @@
 
     <!-- Submit Your Testimonial -->
     <section class="submit-testimonial-section">
-        <h2>Submit Your Testimonial</h2>
-        <form id="testimonial-form">
-          <label for="name">Your Name:</label><br />
-          <input type="text" id="name" name="name" placeholder="Enter your name" required><br /><br />
-        
-          <label for="email">Your Email:</label><br />
-          <input type="email" id="email" name="email" placeholder="Enter your email" required><br /><br />
-        
-          <label for="testimonial">Your Testimonial:</label><br />
-          <textarea id="testimonial" name="testimonial" rows="4" placeholder="Write your testimonial here..." required></textarea><br /><br />
-        
-          <!-- Submit Button -->
+      <h2>Submit Your Testimonial</h2>
+      <form id="testimonial-form">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  
+          <label for="testimonial">Your Testimonial:</label>
+          <textarea id="testimonial" name="testimonial" rows="4" placeholder="Write your testimonial here..." required></textarea>
+  
           <button type="submit" id="submit-button" disabled style="display: none;">Submit</button>
-    </form>
-    <p id="form-response" style="display: none; font-weight: bold;"></p>
+      </form>
+      <p id="form-response" style="display: none; font-weight: bold;"></p>
+  </section>
+  
       
-      </section>
   </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2024 Buchanan Building Consortium. All rights reserved.</p>
   </footer>
+  <!-- jQuery and jQuery UI Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+  <!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-  <!-- Scripts -->
-  <script src="js/submitTestimonial.js" defer></script>
+<!-- Your Custom JavaScript -->
+<script src="js-ajax/submitTestimonial.js" defer></script>
 </body>
 </html>

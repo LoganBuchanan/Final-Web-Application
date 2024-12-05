@@ -1,17 +1,22 @@
 // Initialize EmailJS
-emailjs.init("cw0kLURlCkrTpbHn0"); // Replace with your actual EmailJS user ID
+emailjs.init("cw0kLURlCkrTpbHn0");
 
 $(function () {
+    console.log("Script loaded");
+
     // Validate form fields
     function validateForm() {
-        const name = $("#name").val().trim();
+        const userName = $("#name").val().trim();
         const email = $("#email").val().trim();
         const testimonial = $("#testimonial").val().trim();
 
-        // If all fields are filled, show and enable the submit button
-        if (name && email && testimonial) {
-          $("#submit-button").fadeIn().prop("disabled", false); // Show and enable button
+        console.log("Validating fields:", { userName, email, testimonial });
+
+        if (userName && email && testimonial) {
+            console.log("All fields are filled. Showing the submit button.");
+            $("#submit-button").fadeIn().prop("disabled", false); // Show and enable button
         } else {
+            console.log("Fields are missing. Hiding the submit button.");
             $("#submit-button").fadeOut().prop("disabled", true); // Hide and disable button
         }
     }
@@ -21,38 +26,36 @@ $(function () {
 
     // Handle form submission
     $("#testimonial-form").on("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission behavior
+        event.preventDefault();
 
-        // Collect form data
-        const name = $("#name").val();
+        const userName = $("#name").val();
         const email = $("#email").val();
         const testimonial = $("#testimonial").val();
 
-        // Display a loading message
+        console.log("Form submitted with data:", { userName, email, testimonial });
+
         $("#form-response").text("Sending...").css("color", "blue").fadeIn();
 
-        // Send email using EmailJS
         emailjs.send("service_f34896c", "template_xsmka8t", {
-            user_name: name,
+            user_name: userName,
             user_email: email,
             user_testimonial: testimonial,
         })
         .then(function () {
             $("#form-response")
-                .text("Thank you! Your testimonial has been submitted.")
+                .text("Your testimonial has been submitted. Thank you!")
                 .css("color", "green")
                 .fadeIn();
 
-            // Reset the form and hide the submit button
             $("#testimonial-form")[0].reset();
             $("#submit-button").fadeOut().prop("disabled", true);
         })
         .catch(function (error) {
+            console.error("EmailJS Error:", error);
             $("#form-response")
                 .text("Failed to submit your testimonial. Please try again later.")
                 .css("color", "red")
                 .fadeIn();
-            console.error("EmailJS Error:", error);
         });
     });
 });
