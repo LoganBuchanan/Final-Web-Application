@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // Your JavaScript or jQuery code here
+    // The javascript for the datepicker
     $("#appointment-date").datepicker({
         showAnim: "slideDown",
         minDate: 0,
