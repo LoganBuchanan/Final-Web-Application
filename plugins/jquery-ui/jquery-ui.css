@@ -1,0 +1,86 @@
+/* Style the datepicker input field to match your form design */
+#appointment-date {
+    padding: 10px;
+    font-size: 1em;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#appointment-date:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none; /* Removes default browser focus outline */
+}
+
+/* Style the jQuery UI datepicker popup */
+.ui-datepicker {
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Header of the datepicker */
+.ui-datepicker-header {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #388e3c;
+}
+
+/* Navigation buttons */
+.ui-datepicker-prev, .ui-datepicker-next {
+    color: white;
+    text-shadow: none;
+    background-color: #388e3c;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.ui-datepicker-prev:hover, .ui-datepicker-next:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+/* Date cells */
+.ui-datepicker td {
+    padding: 0;
+}
+
+.ui-datepicker td a {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.ui-datepicker td a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Selected date */
+.ui-datepicker .ui-datepicker-current-day a {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+/* Disabled dates */
+.ui-datepicker-unselectable .ui-state-disabled {
+    color: #ccc;
+    pointer-events: none;
+    background-color: #f9f9f9;
+}

@@ -4,24 +4,41 @@ emailjs.init("cw0kLURlCkrTpbHn0");
 $(function () {
     console.log("Script loaded");
 
+    // Load testimonials from local storage
+    function loadTestimonials() {
+        const testimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
+        testimonials.forEach(({ userName, testimonial }) => {
+            const testimonialHTML = `
+                <div class="testimonial">
+                    <p class="quote">"${testimonial}"</p>
+                    <p class="client">- ${userName}</p>
+                </div>
+            `;
+            $(".testimonials-section").append(testimonialHTML);
+        });
+    }
+
+    // Save testimonial to local storage
+    function saveTestimonial(userName, testimonial) {
+        const testimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
+        testimonials.push({ userName, testimonial });
+        localStorage.setItem("testimonials", JSON.stringify(testimonials));
+    }
+
     // Validate form fields
     function validateForm() {
         const userName = $("#name").val().trim();
         const email = $("#email").val().trim();
         const testimonial = $("#testimonial").val().trim();
 
-        // Regex for email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
         console.log("Validating fields:", { userName, email, testimonial });
 
-        // Check if all fields are filled and email is valid
-        if (userName && emailRegex.test(email) && testimonial) {
-            console.log("All fields are valid. Showing the submit button.");
-            $("#submit-button").fadeIn().prop("disabled", false);
+        if (userName && email && testimonial) {
+            console.log("All fields are filled. Showing the submit button.");
+            $("#submit-button").fadeIn().prop("disabled", false); // Show and enable button
         } else {
-            console.log("Fields are invalid or missing. Hiding the submit button.");
-            $("#submit-button").fadeOut().prop("disabled", true);
+            console.log("Fields are missing. Hiding the submit button.");
+            $("#submit-button").fadeOut().prop("disabled", true); // Hide and disable button
         }
     }
 
@@ -46,6 +63,18 @@ $(function () {
             user_testimonial: testimonial,
         })
         .then(function () {
+            // Save testimonial to local storage
+            saveTestimonial(userName, testimonial);
+
+            // Add the testimonial to the page
+            const newTestimonial = `
+                <div class="testimonial">
+                    <p class="quote">"${testimonial}"</p>
+                    <p class="client">- ${userName}</p>
+                </div>
+            `;
+            $(".testimonials-section").append(newTestimonial);
+
             $("#form-response")
                 .text("Your testimonial has been submitted. Thank you!")
                 .css("color", "green")
@@ -62,4 +91,7 @@ $(function () {
                 .fadeIn();
         });
     });
+
+    // Load existing testimonials on page load
+    loadTestimonials();
 });
