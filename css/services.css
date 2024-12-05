@@ -1,16 +1,3 @@
-header {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
 /* Service Section Styling */
 .service-section {
     margin-bottom: 30px;
@@ -27,42 +14,118 @@ header h1 {
     margin-bottom: 15px;
 }
 
-.service-section .images {
+/* Styling for Groups 1 and 3 */
+.service-section:not(#service2) .images {
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    flex-wrap: wrap; /* Allow images to wrap to the next row if needed */
 }
 
-.service-section .images a img {
-    width: 300px; /* Fixed width for all images */
-    height: 200px; /* Fixed height for all images */
-    object-fit: cover; /* Ensure uniform cropping */
+.service-section:not(#service2) .images a img {
+    width: 100%; /* Make images responsive */
+    max-width: 300px; /* Limit maximum width */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure the images maintain their aspect ratio and fit within the box */
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-section .images a img:hover {
+.service-section:not(#service2) .images a img:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust Group 2 Images to Match Video Thumbnail */
+#service2 .images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#service2 .images a img {
+    width: 100%; /* Make images responsive */
+    max-width: 300px; /* Match thumbnail width */
+    height: 200px; /* Match thumbnail height */
+    object-fit: cover; /* Ensure images maintain aspect ratio and fit in the box */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#service2 .images a img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Search Section Styling */
+#search-section {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+#search-section h2 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+#search-section input {
+    padding: 10px;
+    font-size: 1em;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#search-section input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
 #search-results {
     list-style: none;
     padding: 0;
     margin: 10px 0;
-  }
-  
-  #search-results li {
+}
+
+#search-results li {
     padding: 5px 10px;
     border-bottom: 1px solid #ddd;
     background-color: #f9f9f9;
     cursor: pointer;
-  }
-  
-  #search-results li:hover {
+}
+
+#search-results li:hover {
     background-color: #4CAF50;
     color: white;
-  }
-  
+}
 
-  
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-section .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-section .images a img {
+        max-width: 100%; /* Adjust width to full size on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #search-section input {
+        width: 100%;
+    }
+
+}

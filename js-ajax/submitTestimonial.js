@@ -10,14 +10,18 @@ $(function () {
         const email = $("#email").val().trim();
         const testimonial = $("#testimonial").val().trim();
 
+        // Regex for email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
         console.log("Validating fields:", { userName, email, testimonial });
 
-        if (userName && email && testimonial) {
-            console.log("All fields are filled. Showing the submit button.");
-            $("#submit-button").fadeIn().prop("disabled", false); // Show and enable button
+        // Check if all fields are filled and email is valid
+        if (userName && emailRegex.test(email) && testimonial) {
+            console.log("All fields are valid. Showing the submit button.");
+            $("#submit-button").fadeIn().prop("disabled", false);
         } else {
-            console.log("Fields are missing. Hiding the submit button.");
-            $("#submit-button").fadeOut().prop("disabled", true); // Hide and disable button
+            console.log("Fields are invalid or missing. Hiding the submit button.");
+            $("#submit-button").fadeOut().prop("disabled", true);
         }
     }
 

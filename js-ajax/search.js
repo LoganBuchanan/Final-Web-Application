@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Map search terms to section IDs
     const services = [
-      { name: "Group 1: Discover the beauty", id: "service1" },
-      { name: "Group 2: Explore unique and innovative solutions", id: "service2" },
-      { name: "Wall to Stone Fireplace Conversion", id: "service3" },
+      { name: "Outdoor and Indoor!", id: "service1" },
+      { name: "Setting the Foundation!", id: "service2" },
+      { name: "Water and Piping!", id: "service3" },
     ];
   
     // Handle input event on the search box

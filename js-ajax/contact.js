@@ -1,77 +1,74 @@
-// Initialize EmailJS
 emailjs.init("cw0kLURlCkrTpbHn0"); // Replace with your actual EmailJS user ID
 
 $(function () {
-    // Basic Initialization Test
-    console.log("Script loaded"); // Confirms the script is running
+  console.log("Script loaded");
 
-    // Initialize the jQuery UI datepicker
-    $("#datepicker").datepicker({
-        dateFormat: "mm/dd/yy", // Format the date
-        minDate: 0,            // Disable past dates
-        showAnim: "slideDown", // Animation effect
-    });
+  // Initialize the jQuery UI datepicker
+  $("#datepicker").datepicker({
+    dateFormat: "mm/dd/yy",
+    minDate: 0,
+    showAnim: "slideDown",
+  });
 
-    console.log("Datepicker initialized"); // Confirms the datepicker is set up
+  console.log("Datepicker initialized");
 
-    // Check if all fields are filled
-    function validateForm() {
-        const date = $("#datepicker").val().trim();
-        const userName = $("#user-name").val().trim();
-        const reason = $("#reason").val().trim();
-        const contactInfo = $("#contact-info").val().trim();
+  function isValidContact(contact) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^\+?[1-9]\d{1,14}$/;
+    return emailPattern.test(contact) || phonePattern.test(contact);
+  }
 
-        console.log("Validating fields:", { date, userName, reason, contactInfo });
+  function validateForm() {
+    const date = $("#datepicker").val().trim();
+    const userName = $("#user-name").val().trim();
+    const reason = $("#reason").val().trim();
+    const contactInfo = $("#contact-info").val().trim();
 
-        // If all fields are filled, show and enable the submit button
-        if (date && userName && reason && contactInfo) {
-            $("#submit-button").fadeIn().prop("disabled", false); // Show and enable button
-        } else {
-            $("#submit-button").fadeOut().prop("disabled", true); // Hide and disable button
-        }
+    console.log("Validating fields:", { date, userName, reason, contactInfo });
+
+    if (date && userName && reason && isValidContact(contactInfo)) {
+      $("#submit-button").fadeIn().prop("disabled", false);
+    } else {
+      $("#submit-button").fadeOut().prop("disabled", true);
     }
+  }
 
-    // Add event listeners to validate the form whenever inputs change
-    $("#datepicker, #user-name, #reason, #contact-info").on("input change", validateForm);
+  $("#datepicker, #user-name, #reason, #contact-info").on("input change", validateForm);
 
-    // Handle form submission
-    $("#contact-form").on("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission behavior
+  $("#contact-form").on("submit", function (event) {
+    event.preventDefault();
 
-        // Collect form data
-        const date = $("#datepicker").val();
-        const userName = $("#user-name").val();
-        const reason = $("#reason").val();
-        const contactInfo = $("#contact-info").val();
+    const date = $("#datepicker").val();
+    const userName = $("#user-name").val();
+    const reason = $("#reason").val();
+    const contactInfo = $("#contact-info").val();
 
-        console.log("Form submitted with data:", { date, userName, reason, contactInfo });
+    console.log("Form submitted with data:", { date, userName, reason, contactInfo });
 
-        // Display a loading message
-        $("#form-response").text("Sending...").css("color", "blue").fadeIn();
+    $("#form-response").text("Sending...").css("color", "blue").fadeIn();
 
-        // Send email using EmailJS
-        emailjs.send("service_f34896c", "template_eto37nf", {
-            appointment_date: date,
-            user_name: userName,
-            reason: reason,
-            contact_info: contactInfo,
-        })
-        .then(function (response) {
-            $("#form-response")
-                .text("Your message has been sent successfully!")
-                .css("color", "green")
-                .fadeIn();
+    emailjs
+      .send("service_f34896c", "template_eto37nf", {
+        appointment_date: date,
+        user_name: userName,
+        reason: reason,
+        contact_info: contactInfo,
+      })
+      .then(function () {
+        $("#form-response")
+          .text("Your message has been sent successfully!")
+          .css("color", "green")
+          .fadeIn();
 
-            // Reset the form and hide the submit button
-            $("#contact-form")[0].reset();
-            $("#submit-button").fadeOut().prop("disabled", true);
-        })
-        .catch(function (error) {
-            console.error("EmailJS Error:", error);
-            $("#form-response")
-                .text("Failed to send your message. Please try again later.")
-                .css("color", "red")
-                .fadeIn();
-        });
-    });
+        $("#contact-form")[0].reset();
+        $("#submit-button").fadeOut().prop("disabled", true);
+      })
+      .catch(function (error) {
+        console.error("EmailJS Error:", error);
+        $("#form-response")
+          .text("Failed to send your message. Please try again later.")
+          .css("color", "red")
+          .fadeIn();
+      });
+  });
 });
